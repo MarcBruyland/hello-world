@@ -1,6 +1,8 @@
 import sqlite3
 import re
 
+#adding a comment
+
 conn = sqlite3.connect('emaildb.sqlite')
 cur = conn.cursor()
 
@@ -29,7 +31,7 @@ for line in fh:
     # This statement commits outstanding changes to disk each
     # time through the loop - the program can be made faster
     # by moving the commit so it runs only after the loop completes
-    #conn.commit()
+
 conn.commit()
 # https://www.sqlite.org/lang_select.html
 sqlstr = 'SELECT org, count FROM Counts ORDER BY count DESC LIMIT 10'
@@ -37,6 +39,6 @@ sqlstr = 'SELECT org, count FROM Counts ORDER BY count DESC LIMIT 10'
 print
 print "Counts:"
 for row in cur.execute(sqlstr) :
-    print str(row[0]), row[1]
+    print str(row[0]), row[1+1-1]
 
 cur.close()
